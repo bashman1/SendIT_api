@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="home-page" lang="en">
+
+<head>
+    <title>SendIT{% block title %}{% endblock %}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            
+        </div>
+    </nav>
+    <div class="container">
+    {% for message in get_flashed_messages() %}
+    {% if message %}
+    <div class='row alert alert-info'>
+      <div class='col-sm-12 text-center flash'>{{ message }}</div>
+    </div>
+    {% endif %}
+      {% endfor %}
+
+      {% if error %}
+      <div class='row alert alert-danger'>
+        <div class='col-sm-12 text-center flash'>{{ error }}</div>
+      </div>
+      {% endif %}
+    </div>
+    {% block content %} {% endblock %}
+   
+    
+</body>
+
+</html>
