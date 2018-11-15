@@ -1,8 +1,8 @@
- import pytest
+ import unittest
 
 from app.models import Database,User
 
-class DatabaseTest:
+class DatabaseTest(unittest.TestCase):
 
 	def setUp(self):
 		self.db=Database()
@@ -26,4 +26,6 @@ class DatabaseTest:
 		self.db._user_keys +=[1,2,3]
 		self.assertEqual(self.db.get_next_key(User),4)
 		self.assertRaises(TypeError, self.db.get_next_key,2)
+
+
 

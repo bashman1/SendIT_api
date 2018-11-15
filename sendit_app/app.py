@@ -1,5 +1,5 @@
 """
-This is the entry point for the app
+This is the entry point for the app 
 """
 
 import os
@@ -53,6 +53,8 @@ def signup():
             else:
                 # redirect the user to dashboard
                 flash('User sign up successful')
+
+                # return app.models.users
                 return redirect(url_for('categories_list',
                                 user_key=user.key))
     if error:
